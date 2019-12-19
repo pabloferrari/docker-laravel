@@ -1,0 +1,34 @@
+# INSTRUCTIONS
+# https://www.digitalocean.com/community/tutorials/como-configurar-laravel-nginx-y-mysql-con-docker-compose-es
+# 
+
+1. - Primer vez luego del clone
+
+docker run --rm -v $(pwd):/app composer install
+
+2. - Dar permisos
+sudo chown -R $USER:$USER ~/oneclick
+
+3. - Copiar el .env
+cp .env.example .env
+
+4. - Construir los containers
+docker-compose up -d
+
+4. ~ Ver containers
+docker ps
+
+5. - KEY:GENERATE
+docker-compose exec app php artisan key:generate
+
+6. - CONFIG:CACHE
+docker-compose exec app php artisan config:cache
+
+7. - PHP ARTISAN MIGRATE
+docker-compose exec app php artisan migrate
+
+------------------------------------------------------------------------------------
+
+EJECUTAR containers
+
+docker-compose up -d
